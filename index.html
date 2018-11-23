@@ -1,517 +1,509 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
-
-<head>
-	<title>魔方</title>
-	<meta charset="utf-8">
-	<style>
-		body {
-			perspective: 10000px;
-		}
-
-		#whole {
-			perspective: 10000px;
-			text-align: center;
-			position: relative;
-			margin: 200px auto;
-			width: 400px;
-			height: 400px;
-			transform-style: preserve-3d;
-			animation: mofang 10s linear infinite;
-			-webkit-animation: mofang 10s linear infinite;
-			-ms-animation: 10s linear infinite;
-		}
-
-		@keyframes mofang {
-			0% {
-				transform: rotatex(0deg) rotatey(0deg);
-				-ms-transform: rotatex(0deg) rotatey(0deg);
-				-webkit-transform: rotatex(0deg) rotatey(0deg);
-			}
-			25% {
-				transform: rotatex(-90deg) rotatey(-90deg);
-				-ms-transform: rotatex(-90deg) rotatey(-90deg);
-				-webkit-transform: rotatex(-90deg) rotatey(-90deg);
-			}
-			50% {
-				transform: rotatex(-180deg) rotatey(-180deg);
-				-ms-transform: rotatex(-180deg) rotatey(-180deg);
-				-webkit-transform: rotatex(-180deg) rotatey(-180deg);
-			}
-			75% {
-				transform: rotatex(-270deg) rotatey(-270deg);
-				-ms-transform: rotatex(-270deg) rotatey(-270deg);
-				-webkit-transform: rotatex(-270deg) rotatey(-270deg);
-			}
-			100% {
-				transform: rotatex(-360deg) rotatey(-360deg);
-				-ms-transform: rotatex(-360deg) rotatey(-360deg);
-				-webkit-transform: rotatex(-360deg) rotatey(-360deg);
-			}
-		}
-
-		#red,
-		#purple,
-		#black,
-		#blue,
-		#pink,
-		#green {
-			width: 300px;
-			height: 300px;
-			position: absolute;
-			perspective: 10000px;
-			margin: 0 auto;
-		}
-
-		#black {
-			transform: rotatey(0) translatez(150px);
-			-webkit-transform: rotatey(0) translatez(150px);
-			-ms-transform: rotatey(0) translatez(150px);
-
-		}
-
-		#black div {
-			width: 100px;
-			height: 100px;
-			border: 1px solid white;
-			box-sizing: border-box;
-			background: black;
-			position: absolute;
-			color: white;
-			line-height: 100px;
-		}
-
-		#black div:nth-child(1) {
-			top: 0px;
-			left: 0px;
-		}
-
-		#black div:nth-child(2) {
-			top: 100px;
-			left: 0px;
-		}
-
-		#black div:nth-child(3) {
-			top: 200px;
-			left: 0px;
-		}
-
-		#black div:nth-child(4) {
-			top: 0px;
-			left: 100px;
-		}
-
-		#black div:nth-child(5) {
-			top: 0px;
-			left: 200px;
-		}
-
-		#black div:nth-child(6) {
-			top: 100px;
-			left: 100px;
-		}
-
-		#black div:nth-child(7) {
-			top: 100px;
-			left: 200px;
-		}
-
-		#black div:nth-child(8) {
-			top: 200px;
-			left: 200px;
-		}
-
-		#black div:nth-child(9) {
-			top: 200px;
-			left: 100px;
-		}
-
-		#blue {
-			transform: rotatey(90deg) translatez(150px);
-			-webkit-transform: rotatey(90deg) translatez(150px);
-			-ms-transform: rotatey(90deg) translatez(150px);
-			;
-		}
-
-		#blue div {
-			width: 100px;
-			height: 100px;
-			border: 1px solid white;
-			box-sizing: border-box;
-			background: blue;
-			position: absolute;
-			color: white;
-			line-height: 100px;
-		}
-
-		#blue div:nth-child(1) {
-			top: 0px;
-			left: 0px;
-		}
-
-		#blue div:nth-child(2) {
-			top: 100px;
-			left: 0px;
-		}
-
-		#blue div:nth-child(3) {
-			top: 200px;
-			left: 0px;
-		}
-
-		#blue div:nth-child(4) {
-			top: 0px;
-			left: 100px;
-		}
-
-		#blue div:nth-child(5) {
-			top: 0px;
-			left: 200px;
-		}
-
-		#blue div:nth-child(6) {
-			top: 100px;
-			left: 100px;
-		}
-
-		#blue div:nth-child(7) {
-			top: 100px;
-			left: 200px;
-		}
-
-		#blue div:nth-child(8) {
-			top: 200px;
-			left: 200px;
-		}
-
-		#blue div:nth-child(9) {
-			top: 200px;
-			left: 100px;
-		}
-
-		#pink {
-			transform: rotatey(180deg) translatez(150px);
-			-webkit-transform: rotatey(180deg) translatez(150px);
-			-ms-transform: rotatey(180deg) translatez(150px);
-		}
-
-		#pink div {
-			width: 100px;
-			height: 100px;
-			border: 1px solid white;
-			box-sizing: border-box;
-			background: pink;
-			position: absolute;
-			color: white;
-			line-height: 100px;
-		}
-
-		#pink div:nth-child(1) {
-			top: 0px;
-			left: 0px;
-		}
-
-		#pink div:nth-child(2) {
-			top: 100px;
-			left: 0px;
-		}
-
-		#pink div:nth-child(3) {
-			top: 200px;
-			left: 0px;
-		}
-
-		#pink div:nth-child(4) {
-			top: 0px;
-			left: 100px;
-		}
-
-		#pink div:nth-child(5) {
-			top: 0px;
-			left: 200px;
-		}
-
-		#pink div:nth-child(6) {
-			top: 100px;
-			left: 100px;
-		}
-
-		#pink div:nth-child(7) {
-			top: 100px;
-			left: 200px;
-		}
-
-		#pink div:nth-child(8) {
-			top: 200px;
-			left: 200px;
-		}
-
-		#pink div:nth-child(9) {
-			top: 200px;
-			left: 100px;
-		}
-
-		#green {
-			transform: rotatey(270deg) translatez(150px);
-			-webkit-transform: rotatey(270deg) translatez(150px);
-			-ms-transform: rotatey(270deg) translatez(150px);
-		}
-
-		#green div {
-			width: 100px;
-			height: 100px;
-			border: 1px solid white;
-			box-sizing: border-box;
-			background: green;
-			position: absolute;
-			color: white;
-			line-height: 100px;
-		}
-
-		#green div:nth-child(1) {
-			top: 0px;
-			left: 0px;
-		}
-
-		#green div:nth-child(2) {
-			top: 100px;
-			left: 0px;
-		}
-
-		#green div:nth-child(3) {
-			top: 200px;
-			left: 0px;
-		}
-
-		#green div:nth-child(4) {
-			top: 0px;
-			left: 100px;
-		}
-
-		#green div:nth-child(5) {
-			top: 0px;
-			left: 200px;
-		}
-
-		#green div:nth-child(6) {
-			top: 100px;
-			left: 100px;
-		}
-
-		#green div:nth-child(7) {
-			top: 100px;
-			left: 200px;
-		}
-
-		#green div:nth-child(8) {
-			top: 200px;
-			left: 200px;
-		}
-
-		#green div:nth-child(9) {
-			top: 200px;
-			left: 100px;
-		}
-
-		#purple {
-			transform: rotatex(90deg) translatez(-150px);
-			-webkit-transform: rotatex(90deg) translatez(-150px);
-			-ms-transform: rotatex(90deg) translatez(-150px);
-		}
-
-		#purple div {
-			width: 100px;
-			height: 100px;
-			border: 1px solid white;
-			box-sizing: border-box;
-			background: purple;
-			position: absolute;
-			color: white;
-			line-height: 100px;
-		}
-
-
-		#purple div:nth-child(1) {
-			top: 0px;
-			left: 0px;
-		}
-
-		#purple div:nth-child(2) {
-			top: 100px;
-			left: 0px;
-		}
-
-		#purple div:nth-child(3) {
-			top: 200px;
-			left: 0px;
-		}
-
-		#purple div:nth-child(4) {
-			top: 0px;
-			left: 100px;
-		}
-
-		#purple div:nth-child(5) {
-			top: 0px;
-			left: 200px;
-		}
-
-		#purple div:nth-child(6) {
-			top: 100px;
-			left: 100px;
-		}
-
-		#purple div:nth-child(7) {
-			top: 100px;
-			left: 200px;
-		}
-
-		#purple div:nth-child(8) {
-			top: 200px;
-			left: 200px;
-		}
-
-		#purple div:nth-child(9) {
-			top: 200px;
-			left: 100px;
-		}
-
-		#red {
-
-			transform: rotatex(90deg) translatez(150px);
-			-webkit-transform: rotatex(90deg) translatez(150px);
-			-ms-transform: rotatex(90deg) translatez(150px);
-		}
-
-
-
-		#red div {
-			width: 100px;
-			height: 100px;
-			border: 1px solid white;
-			box-sizing: border-box;
-			background: red;
-			position: absolute;
-			color: white;
-			line-height: 100px;
-		}
-
-		#red div:nth-child(1) {
-			top: 0px;
-			left: 0px;
-		}
-
-		#red div:nth-child(2) {
-			top: 100px;
-			left: 0px;
-		}
-
-		#red div:nth-child(3) {
-			top: 200px;
-			left: 0px;
-		}
-
-		#red div:nth-child(4) {
-			top: 0px;
-			left: 100px;
-		}
-
-		#red div:nth-child(5) {
-			top: 0px;
-			left: 200px;
-		}
-
-		#red div:nth-child(6) {
-			top: 100px;
-			left: 100px;
-		}
-
-		#red div:nth-child(7) {
-			top: 100px;
-			left: 200px;
-		}
-
-		#red div:nth-child(8) {
-			top: 200px;
-			left: 200px;
-		}
-
-		#red div:nth-child(9) {
-			top: 200px;
-			left: 100px;
-		}
-	</style>
-</head>
-
-<body>
-	<div id="whole">
-		<div id="black">
-			<div>1</div>
-			<div>2</div>
-			<div>3</div>
-			<div>4</div>
-			<div>7</div>
-			<div>5</div>
-			<div>8</div>
-			<div>9</div>
-			<div>6</div>
-		</div>
-		<div id="blue">
-			<div>1</div>
-			<div>2</div>
-			<div>3</div>
-			<div>4</div>
-			<div>5</div>
-			<div>6</div>
-			<div>7</div>
-			<div>8</div>
-			<div>9</div>
-		</div>
-		<div id="pink">
-			<div>1</div>
-			<div>2</div>
-			<div>3</div>
-			<div>4</div>
-			<div>5</div>
-			<div>6</div>
-			<div>7</div>
-			<div>8</div>
-			<div>9</div>
-		</div>
-		<div id="green">
-			<div>1</div>
-			<div>2</div>
-			<div>3</div>
-			<div>4</div>
-			<div>5</div>
-			<div>6</div>
-			<div>7</div>
-			<div>8</div>
-			<div>9</div>
-		</div>
-		<div id="purple">
-			<div>1</div>
-			<div>2</div>
-			<div>3</div>
-			<div>4</div>
-			<div>5</div>
-			<div>6</div>
-			<div>7</div>
-			<div>8</div>
-			<div>9</div>
-		</div>
-		<div id="red">
-			<div>1</div>
-			<div>2</div>
-			<div>3</div>
-			<div>4</div>
-			<div>5</div>
-			<div>6</div>
-			<div>7</div>
-			<div>8</div>
-			<div>9</div>
-		</div>
-	</div>
-</body>
-
+  <head>
+    <title>魔方</title>
+    <meta charset="utf-8" />
+    <style>
+      body {
+        perspective: 10000px;
+      }
+
+      #whole {
+        perspective: 10000px;
+        text-align: center;
+        position: relative;
+        margin: 200px auto;
+        width: 400px;
+        height: 400px;
+        transform-style: preserve-3d;
+        animation: mofang 10s linear infinite;
+        -webkit-animation: mofang 10s linear infinite;
+        -ms-animation: 10s linear infinite;
+      }
+
+      @keyframes mofang {
+        0% {
+          transform: rotatex(0deg) rotatey(0deg);
+          -ms-transform: rotatex(0deg) rotatey(0deg);
+          -webkit-transform: rotatex(0deg) rotatey(0deg);
+        }
+        25% {
+          transform: rotatex(-90deg) rotatey(-90deg);
+          -ms-transform: rotatex(-90deg) rotatey(-90deg);
+          -webkit-transform: rotatex(-90deg) rotatey(-90deg);
+        }
+        50% {
+          transform: rotatex(-180deg) rotatey(-180deg);
+          -ms-transform: rotatex(-180deg) rotatey(-180deg);
+          -webkit-transform: rotatex(-180deg) rotatey(-180deg);
+        }
+        75% {
+          transform: rotatex(-270deg) rotatey(-270deg);
+          -ms-transform: rotatex(-270deg) rotatey(-270deg);
+          -webkit-transform: rotatex(-270deg) rotatey(-270deg);
+        }
+        100% {
+          transform: rotatex(-360deg) rotatey(-360deg);
+          -ms-transform: rotatex(-360deg) rotatey(-360deg);
+          -webkit-transform: rotatex(-360deg) rotatey(-360deg);
+        }
+      }
+
+      #red,
+      #purple,
+      #black,
+      #blue,
+      #pink,
+      #green {
+        width: 300px;
+        height: 300px;
+        position: absolute;
+        perspective: 10000px;
+        margin: 0 auto;
+      }
+
+      #black {
+        transform: rotatey(0) translatez(150px);
+        -webkit-transform: rotatey(0) translatez(150px);
+        -ms-transform: rotatey(0) translatez(150px);
+      }
+
+      #black div {
+        width: 100px;
+        height: 100px;
+        border: 1px solid white;
+        box-sizing: border-box;
+        background: black;
+        position: absolute;
+        color: white;
+        line-height: 100px;
+      }
+
+      #black div:nth-child(1) {
+        top: 0px;
+        left: 0px;
+      }
+
+      #black div:nth-child(2) {
+        top: 100px;
+        left: 0px;
+      }
+
+      #black div:nth-child(3) {
+        top: 200px;
+        left: 0px;
+      }
+
+      #black div:nth-child(4) {
+        top: 0px;
+        left: 100px;
+      }
+
+      #black div:nth-child(5) {
+        top: 0px;
+        left: 200px;
+      }
+
+      #black div:nth-child(6) {
+        top: 100px;
+        left: 100px;
+      }
+
+      #black div:nth-child(7) {
+        top: 100px;
+        left: 200px;
+      }
+
+      #black div:nth-child(8) {
+        top: 200px;
+        left: 200px;
+      }
+
+      #black div:nth-child(9) {
+        top: 200px;
+        left: 100px;
+      }
+
+      #blue {
+        transform: rotatey(90deg) translatez(150px);
+        -webkit-transform: rotatey(90deg) translatez(150px);
+        -ms-transform: rotatey(90deg) translatez(150px);
+      }
+
+      #blue div {
+        width: 100px;
+        height: 100px;
+        border: 1px solid white;
+        box-sizing: border-box;
+        background: blue;
+        position: absolute;
+        color: white;
+        line-height: 100px;
+      }
+
+      #blue div:nth-child(1) {
+        top: 0px;
+        left: 0px;
+      }
+
+      #blue div:nth-child(2) {
+        top: 100px;
+        left: 0px;
+      }
+
+      #blue div:nth-child(3) {
+        top: 200px;
+        left: 0px;
+      }
+
+      #blue div:nth-child(4) {
+        top: 0px;
+        left: 100px;
+      }
+
+      #blue div:nth-child(5) {
+        top: 0px;
+        left: 200px;
+      }
+
+      #blue div:nth-child(6) {
+        top: 100px;
+        left: 100px;
+      }
+
+      #blue div:nth-child(7) {
+        top: 100px;
+        left: 200px;
+      }
+
+      #blue div:nth-child(8) {
+        top: 200px;
+        left: 200px;
+      }
+
+      #blue div:nth-child(9) {
+        top: 200px;
+        left: 100px;
+      }
+
+      #pink {
+        transform: rotatey(180deg) translatez(150px);
+        -webkit-transform: rotatey(180deg) translatez(150px);
+        -ms-transform: rotatey(180deg) translatez(150px);
+      }
+
+      #pink div {
+        width: 100px;
+        height: 100px;
+        border: 1px solid white;
+        box-sizing: border-box;
+        background: pink;
+        position: absolute;
+        color: white;
+        line-height: 100px;
+      }
+
+      #pink div:nth-child(1) {
+        top: 0px;
+        left: 0px;
+      }
+
+      #pink div:nth-child(2) {
+        top: 100px;
+        left: 0px;
+      }
+
+      #pink div:nth-child(3) {
+        top: 200px;
+        left: 0px;
+      }
+
+      #pink div:nth-child(4) {
+        top: 0px;
+        left: 100px;
+      }
+
+      #pink div:nth-child(5) {
+        top: 0px;
+        left: 200px;
+      }
+
+      #pink div:nth-child(6) {
+        top: 100px;
+        left: 100px;
+      }
+
+      #pink div:nth-child(7) {
+        top: 100px;
+        left: 200px;
+      }
+
+      #pink div:nth-child(8) {
+        top: 200px;
+        left: 200px;
+      }
+
+      #pink div:nth-child(9) {
+        top: 200px;
+        left: 100px;
+      }
+
+      #green {
+        transform: rotatey(270deg) translatez(150px);
+        -webkit-transform: rotatey(270deg) translatez(150px);
+        -ms-transform: rotatey(270deg) translatez(150px);
+      }
+
+      #green div {
+        width: 100px;
+        height: 100px;
+        border: 1px solid white;
+        box-sizing: border-box;
+        background: green;
+        position: absolute;
+        color: white;
+        line-height: 100px;
+      }
+
+      #green div:nth-child(1) {
+        top: 0px;
+        left: 0px;
+      }
+
+      #green div:nth-child(2) {
+        top: 100px;
+        left: 0px;
+      }
+
+      #green div:nth-child(3) {
+        top: 200px;
+        left: 0px;
+      }
+
+      #green div:nth-child(4) {
+        top: 0px;
+        left: 100px;
+      }
+
+      #green div:nth-child(5) {
+        top: 0px;
+        left: 200px;
+      }
+
+      #green div:nth-child(6) {
+        top: 100px;
+        left: 100px;
+      }
+
+      #green div:nth-child(7) {
+        top: 100px;
+        left: 200px;
+      }
+
+      #green div:nth-child(8) {
+        top: 200px;
+        left: 200px;
+      }
+
+      #green div:nth-child(9) {
+        top: 200px;
+        left: 100px;
+      }
+
+      #purple {
+        transform: rotatex(90deg) translatez(-150px);
+        -webkit-transform: rotatex(90deg) translatez(-150px);
+        -ms-transform: rotatex(90deg) translatez(-150px);
+      }
+
+      #purple div {
+        width: 100px;
+        height: 100px;
+        border: 1px solid white;
+        box-sizing: border-box;
+        background: purple;
+        position: absolute;
+        color: white;
+        line-height: 100px;
+      }
+
+      #purple div:nth-child(1) {
+        top: 0px;
+        left: 0px;
+      }
+
+      #purple div:nth-child(2) {
+        top: 100px;
+        left: 0px;
+      }
+
+      #purple div:nth-child(3) {
+        top: 200px;
+        left: 0px;
+      }
+
+      #purple div:nth-child(4) {
+        top: 0px;
+        left: 100px;
+      }
+
+      #purple div:nth-child(5) {
+        top: 0px;
+        left: 200px;
+      }
+
+      #purple div:nth-child(6) {
+        top: 100px;
+        left: 100px;
+      }
+
+      #purple div:nth-child(7) {
+        top: 100px;
+        left: 200px;
+      }
+
+      #purple div:nth-child(8) {
+        top: 200px;
+        left: 200px;
+      }
+
+      #purple div:nth-child(9) {
+        top: 200px;
+        left: 100px;
+      }
+
+      #red {
+        transform: rotatex(90deg) translatez(150px);
+        -webkit-transform: rotatex(90deg) translatez(150px);
+        -ms-transform: rotatex(90deg) translatez(150px);
+      }
+
+      #red div {
+        width: 100px;
+        height: 100px;
+        border: 1px solid white;
+        box-sizing: border-box;
+        background: red;
+        position: absolute;
+        color: white;
+        line-height: 100px;
+      }
+
+      #red div:nth-child(1) {
+        top: 0px;
+        left: 0px;
+      }
+
+      #red div:nth-child(2) {
+        top: 100px;
+        left: 0px;
+      }
+
+      #red div:nth-child(3) {
+        top: 200px;
+        left: 0px;
+      }
+
+      #red div:nth-child(4) {
+        top: 0px;
+        left: 100px;
+      }
+
+      #red div:nth-child(5) {
+        top: 0px;
+        left: 200px;
+      }
+
+      #red div:nth-child(6) {
+        top: 100px;
+        left: 100px;
+      }
+
+      #red div:nth-child(7) {
+        top: 100px;
+        left: 200px;
+      }
+
+      #red div:nth-child(8) {
+        top: 200px;
+        left: 200px;
+      }
+
+      #red div:nth-child(9) {
+        top: 200px;
+        left: 100px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="whole">
+      <div id="black">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>7</div>
+        <div>5</div>
+        <div>8</div>
+        <div>9</div>
+        <div>6</div>
+      </div>
+      <div id="blue">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>7</div>
+        <div>5</div>
+        <div>8</div>
+        <div>9</div>
+        <div>6</div>
+      </div>
+      <div id="pink">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>7</div>
+        <div>5</div>
+        <div>8</div>
+        <div>9</div>
+        <div>6</div>
+      </div>
+      <div id="green">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>7</div>
+        <div>5</div>
+        <div>8</div>
+        <div>9</div>
+        <div>6</div>
+      </div>
+      <div id="purple">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>7</div>
+        <div>5</div>
+        <div>8</div>
+        <div>9</div>
+        <div>6</div>
+      </div>
+      <div id="red">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>7</div>
+        <div>5</div>
+        <div>8</div>
+        <div>9</div>
+        <div>6</div>
+      </div>
+    </div>
+  </body>
 </html>
